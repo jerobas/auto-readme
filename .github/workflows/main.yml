@@ -1,0 +1,10 @@
+name: Use Template Workflow
+
+on:
+  push:
+    branches:
+      - main  # Run on push to the main branch
+
+jobs:
+  use-template:
+    uses: jerobas/.github/workflow-templates/update-readme.yml@main
