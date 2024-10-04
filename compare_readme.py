@@ -8,9 +8,6 @@ github_token = os.getenv('GITHUB_TOKEN')
 
 response = requests.get("https://api.github.com/orgs/jerobas/repos", headers={'authorization': f'{github_token}'})
 repos = response.json()
-
-for i in repos:
-    print(i['default_branch'])
     
 string = md_template(repos)
 
