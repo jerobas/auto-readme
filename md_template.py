@@ -56,7 +56,7 @@ def stringify_table(repos):
 
 def md_template(repos):
     template_string = ''
-    with open('../global-repo/.github/profile/template.md', 'r') as f:
+    with open('../.github/profile/template.md', 'r') as f:
         string = stringify_table(repos)
         template_string = f.read()  # Read the template   
         template_string = template_string.replace("[//]: # (table goes here)", string)
