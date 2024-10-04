@@ -7,4 +7,4 @@ on:
 
 jobs:
   use-template:
-    uses: jerobas/.github/workflow-templates/update-readme.yml@main
+    uses: jerobas/.github/workflows/update-readme.yml@main
