@@ -17,11 +17,9 @@ for repo in repos:
     repo_name = repo['name']
     workflows_response = requests.get(
         f"https://api.github.com/repos/jerobas/{repo_name}/actions/workflows",
-        headers={'authorization': f'token {github_token}'}
+        headers={'authorization': f'{github_token}'}
     )
     workflows = workflows_response.json()
-
-    print(workflows)
 
     if 'workflows' in workflows:
         repo['pipeline'] = any(workflow['path'] == '.github/workflows/release.yml' for workflow in workflows['workflows'])
