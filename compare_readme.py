@@ -20,6 +20,9 @@ for repo in repos:
         headers={'authorization': f'token {github_token}'}
     )
     workflows = workflows_response.json()
+
+    print(workflows)
+
     if 'workflows' in workflows:
         repo['pipeline'] = any(workflow['path'] == '.github/workflows/release.yml' for workflow in workflows['workflows'])
     else:
