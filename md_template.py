@@ -21,7 +21,7 @@ columns = [
         "name": "description",
         "alignment": "",
         "display-name": "Descrição",
-        "render-func": lambda x: x['description']
+        "render-func": lambda x: x['description'] if x['description'] != None else '-'
     },
     {
         "name": "language",
@@ -31,9 +31,9 @@ columns = [
     },
     {
         "name": "pipeline",
-        "alignment": "",
+        "alignment": "center",
         "display-name": "CI/CD",
-        "render-func": lambda x: f'![CI/CD Status](https://img.shields.io/github/actions/workflow/status/jerobas/{x['name']}/release.yml?branch={x['default_branch']})'
+        "render-func": lambda x: f'![CI/CD Status](https://img.shields.io/github/actions/workflow/status/jerobas/{x['name']}/release.yml?branch={x['default_branch']})' if x["pipeline"] else '-'
     }
 ]
 
