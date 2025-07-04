@@ -1,14 +1,17 @@
 language_translation = {
-    'dockerfile': 'docker'
+    'dockerfile': 'docker',
+    'html': 'html5'
 }
 
-def language_render_function(x) :
+
+def language_render_function(x):
     if x['language'] == None:
         return "-"
-    
+
     y = x['language'].lower()
     y = language_translation[y] if y in language_translation else y
     return f'<img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/{y}/{y}-plain.svg" alt="{y}-icon" style="width: 28px; height: 28px;" />'
+
 
 columns = [
     {
@@ -37,6 +40,7 @@ columns = [
     }
 ]
 
+
 def stringify_table(repos):
     table_header = ""
     table_size = "|\n"
@@ -51,13 +55,15 @@ def stringify_table(repos):
         for column in columns:
             line += f" {column['render-func']((repo))} |"
         table_content += line + '\n'
-    
+
     return table_header + table_size + table_content
+
 
 def md_template(repos):
     template_string = ''
     with open('../.github/profile/template.md', 'r') as f:
         string = stringify_table(repos)
-        template_string = f.read()  # Read the template   
-        template_string = template_string.replace("[//]: # (table goes here)", string)
+        template_string = f.read()  # Read the template
+        template_string = template_string.replace(
+            "[//]: # (table goes here)", string)
     return template_string

@@ -3,7 +3,7 @@ name: Use Template Workflow
 on:
   push:
     branches:
-      - main  # Run on push to the main branch
+      - main 
 
 jobs:
   use-template:
